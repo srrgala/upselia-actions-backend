@@ -1,0 +1,101 @@
+openapi: 3.0.1
+info:
+  title: Upselia Actions Backend
+  description: API para acciones de Upselia (MVP)
+  version: 1.0.0
+
+servers:
+  - url: https://upselia-actions-backend.onrender.com
+
+paths:
+  /open_link:
+    post:
+      summary: Devuelve una URL desde Links_Env.json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url_key:
+                  type: string
+                  example: faqs
+      responses:
+        "200":
+          description: URL resuelta
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  url_key:
+                    type: string
+                  url:
+                    type: string
+
+  /open_checkout:
+    post:
+      summary: Devuelve link de checkout
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url_key:
+                  type: string
+                  example: stripe_default
+                trainer:
+                  type: string
+                  example: sample_trainer
+      responses:
+        "200":
+          description: URL de checkout
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  resolved_key:
+                    type: string
+                  resolved_from:
+                    type: string
+                  url:
+                    type: string
+
+  /create_ticket:
+    post:
+      summary: Crear un ticket y devolver ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                topic:
+                  type: string
+                message:
+                  type: string
+                trainer:
+                  type: string
+                extra:
+                  type: object
+      responses:
+        "200":
+          description: Ticket creado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  ticket_id:
+                    type: string
