@@ -2,7 +2,8 @@
   "links": {
     "privacy_policy": "https://neighborly-jersey-45a.notion.site/privacidad",
     "faqs": "https://neighborly-jersey-45a.notion.site/faqs",
-    "stripe_default": "https://buy.stripe.com/8x2dRabXbfXme6Hf932kw00"
+    "stripe_default": "https://buy.stripe.com/8x2dRabXbfXme6Hf932kw00",
+    "calendly_general": "https://calendly.com/alberto-gala-barragan/30min"
   },
   "defaults": {
     "calendar": "calendly_general",
