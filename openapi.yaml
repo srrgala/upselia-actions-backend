@@ -1,8 +1,8 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Upselia Actions Backend
   description: API para acciones de Upselia (MVP)
-  version: 1.0.0
+  version: 1.0.1
 
 servers:
   - url: https://upselia-actions-backend.onrender.com
@@ -10,6 +10,7 @@ servers:
 paths:
   /open_link:
     post:
+      operationId: open_link
       summary: Devuelve una URL desde Links_Env.json
       requestBody:
         required: true
@@ -20,7 +21,10 @@ paths:
               properties:
                 url_key:
                   type: string
+                  description: Clave definida en links de Links_Env.json
                   example: faqs
+              required:
+                - url_key
       responses:
         "200":
           description: URL resuelta
@@ -35,10 +39,12 @@ paths:
                     type: string
                   url:
                     type: string
+                    format: uri
 
   /open_checkout:
     post:
-      summary: Devuelve link de checkout
+      operationId: open_checkout
+      summary: Devuelve link de checkout (por url_key, trainer o defaults)
       requestBody:
         required: false
         content:
@@ -68,9 +74,11 @@ paths:
                     type: string
                   url:
                     type: string
+                    format: uri
 
   /create_ticket:
     post:
+      operationId: create_ticket
       summary: Crear un ticket y devolver ID
       requestBody:
         required: true
@@ -87,6 +95,9 @@ paths:
                   type: string
                 extra:
                   type: object
+              required:
+                - topic
+                - message
       responses:
         "200":
           description: Ticket creado
