@@ -1,0 +1,16 @@
+{
+  "name": "upselia-actions-backend",
+  "version": "1.0.0",
+  "description": "MVP backend para Actions de Upselia",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

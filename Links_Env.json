@@ -1,0 +1,17 @@
+{
+  "links": {
+    "privacy_policy": "https://neighborly-jersey-45a.notion.site/privacidad",
+    "faqs": "https://neighborly-jersey-45a.notion.site/faqs",
+    "stripe_default": "https://buy.stripe.com/8x2dRabXbfXme6Hf932kw00"
+  },
+  "defaults": {
+    "calendar": "calendly_general",
+    "checkout": "stripe_default"
+  },
+  "trainers": {
+    "sample_trainer": {
+      "calendar": "calendly_trainer_sample",
+      "checkout": "stripe_sample"
+    }
+  }
+}
