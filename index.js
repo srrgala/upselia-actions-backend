@@ -4,6 +4,8 @@ const express = require("express");
 
 const app = express();
 app.use(express.json());
+app.get("/health", (_req, res) => res.status(200).send("ok"));
+app.get("/", (_req, res) => res.status(200).send("Upselia Actions Backend ✅"));
 
 /* ========= Config ========= */
 const LINKS_PATH = path.join(__dirname, "Links_Env.json");
